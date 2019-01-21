@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +78,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cede_Dotnet_WebApi.ADOSample.Models\Cede_Dotnet_WebApi.ADOSample.Models.csproj">
+      <Project>{f37eac0d-f7bc-4e63-a8b4-402b00397805}</Project>
+      <Name>Cede_Dotnet_WebApi.ADOSample.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cede_Dotnet_WebApi.ADOSample\Cede_Dotnet_WebApi.ADOSample.csproj">
+      <Project>{a34318ec-3ed2-4801-a879-f8818aeb8111}</Project>
+      <Name>Cede_Dotnet_WebApi.ADOSample</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

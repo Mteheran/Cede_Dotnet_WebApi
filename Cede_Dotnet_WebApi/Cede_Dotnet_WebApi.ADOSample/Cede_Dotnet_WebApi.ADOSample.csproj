@@ -47,5 +47,11 @@
     <Compile Include="IConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cede_Dotnet_WebApi.ADOSample.Models\Cede_Dotnet_WebApi.ADOSample.Models.csproj">
+      <Project>{f37eac0d-f7bc-4e63-a8b4-402b00397805}</Project>
+      <Name>Cede_Dotnet_WebApi.ADOSample.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
