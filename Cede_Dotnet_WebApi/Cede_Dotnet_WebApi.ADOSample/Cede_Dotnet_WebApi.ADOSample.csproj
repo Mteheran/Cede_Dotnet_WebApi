@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
+    <Compile Include="ConnectionOleDB.cs" />
     <Compile Include="DepartamentoData.cs" />
     <Compile Include="IConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

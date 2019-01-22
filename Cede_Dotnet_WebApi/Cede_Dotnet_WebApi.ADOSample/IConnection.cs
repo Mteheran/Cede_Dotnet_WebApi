@@ -10,5 +10,9 @@ namespace Cede_Dotnet_WebApi.ADOSample
     public interface IConnection
     {
         DataTable GetInfo(string query);
+
+        bool ExecuteQuery(string query);
+
+        bool ExecuteSP(string nameSP, Dictionary<string, object> parameters);
     }
 }

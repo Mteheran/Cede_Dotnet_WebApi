@@ -11,7 +11,7 @@ namespace Cede_Dotnet_WebApi.ADOSample
     {
         public static List<Departamento> GetDepartamentos()
         {
-            IConnection connection = new Connection();
+            IConnection connection = ConnectionContex.GetContext(AppDBTypes.Main);
 
             var data = connection.GetInfo("SELECT Id,NombreDepartamento FROM Departamento");
 
@@ -23,6 +23,26 @@ namespace Cede_Dotnet_WebApi.ADOSample
             }
 
             return departamentos;
-        }        
+        }
+
+        public static bool InsertDepartamento(Departamento departamento)
+        {
+            ////INSERT con query
+            //IConnection connection = new Connection();
+
+            //string queryInsert = $@" INSERT INTO Departamento
+            //                         Values ('{departamento.Nombre}') ";
+
+            //return connection.ExecuteQuery(queryInsert);            
+
+            //INSERT con SP
+            IConnection connection = ConnectionContex.GetContext(AppDBTypes.Main);
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+
+            parameters.Add("Nombre", departamento.Nombre);
+
+            return connection.ExecuteSP("INSERTDepartamento", parameters);
+        }
     }
 }

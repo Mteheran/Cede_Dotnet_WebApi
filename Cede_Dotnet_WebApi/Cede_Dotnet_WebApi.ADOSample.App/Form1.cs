@@ -16,5 +16,26 @@ namespace Cede_Dotnet_WebApi.ADOSample.App
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = DepartamentoData.GetDepartamentos();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+           bool result = DepartamentoData.InsertDepartamento(new Models.Departamento() { Nombre = txtNombre.Text });
+
+            if (!result)
+            {
+                MessageBox.Show("Error al guardar");
+            }
+            else
+            {
+                txtNombre.Text = string.Empty;
+                dataGridView1.DataSource = DepartamentoData.GetDepartamentos();
+            }    
+
+        }
     }
 }

@@ -2,27 +2,27 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Cede_Dotnet_WebApi.ADOSample
 {
-    public class Connection : IConnection
+    public class ConnectionOleDB : IConnection
     {
-        private SqlConnection con { get; set; } = new SqlConnection();
+        private OleDbConnection con { get; set; } = new OleDbConnection();
 
-        public Connection()
+        public ConnectionOleDB()
         {
-            con.ConnectionString = ConfigurationManager.AppSettings["cnx"].ToString();
+            con.ConnectionString = ConfigurationManager.AppSettings["cnxOleDb"].ToString();
         }
 
         public DataTable GetInfo(string query)
         {
-            SqlCommand command = new SqlCommand(query, con);
+            OleDbCommand command = new OleDbCommand(query, con);
 
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
 
             DataTable result = new DataTable();
 
@@ -40,7 +40,7 @@ namespace Cede_Dotnet_WebApi.ADOSample
         {
             try
             {
-                SqlCommand command = new SqlCommand(query, con);
+                OleDbCommand command = new OleDbCommand(query, con);
 
                 con.Open();
 
@@ -61,7 +61,7 @@ namespace Cede_Dotnet_WebApi.ADOSample
         {
             try
             {
-                SqlCommand command = new SqlCommand(nameSP, con);
+                OleDbCommand command = new OleDbCommand(nameSP, con);
 
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -83,6 +83,5 @@ namespace Cede_Dotnet_WebApi.ADOSample
 
             return true;
         }
-
     }
 }
