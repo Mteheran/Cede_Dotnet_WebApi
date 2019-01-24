@@ -22,13 +22,41 @@ namespace Cede_Dotnet_WebApi.ADOSample
         {
             SqlCommand command = new SqlCommand(query, con);
 
+            // No conectado
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-
             DataTable result = new DataTable();
+            con.Open();
+            dataAdapter.Fill(result);
+
+            con.Close();
+
+            return result;
+
+        }
+
+        public DataTable GetInfoConected(string query)
+        {
+            SqlCommand command = new SqlCommand(query, con);
 
             con.Open();
 
-            dataAdapter.Fill(result);
+            //Conectado
+            SqlDataReader sqlDataReader = command.ExecuteReader();
+
+            DataTable result = new DataTable();
+
+            result.Columns.Add(new DataColumn("ID"));
+            result.Columns.Add(new DataColumn("NombreDepartamento"));
+
+            if (sqlDataReader.HasRows)
+            {
+                while (sqlDataReader.Read())
+                {
+                    result.Rows.Add(sqlDataReader.GetValue(0), sqlDataReader.GetValue(1));
+                }
+            }
+
+            sqlDataReader.Close();
 
             con.Close();
 

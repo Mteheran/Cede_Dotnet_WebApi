@@ -13,14 +13,13 @@ namespace Cede_Dotnet_WebApi.ADOSample
             switch (appDBTypes)
             {
                 case AppDBTypes.Main:
-                    return new ConnectionOleDB();
-                    break;
+                    return FactoryConnection.GetConnection(ConnectionType.OleDB);
                 case AppDBTypes.Log:
                     break;
                 case AppDBTypes.External:
                     break;
                 default:
-                    break;
+                    return null;
             }
 
             return null;

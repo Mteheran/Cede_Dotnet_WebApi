@@ -36,6 +36,36 @@ namespace Cede_Dotnet_WebApi.ADOSample
 
         }
 
+        public DataTable GetInfoConected(string query)
+        {
+            OleDbCommand command = new OleDbCommand(query, con);
+
+            con.Open();
+
+            //Conectado
+            OleDbDataReader sqlDataReader = command.ExecuteReader();
+
+            DataTable result = new DataTable();
+
+            result.Columns.Add(new DataColumn("ID"));
+            result.Columns.Add(new DataColumn("NombreDepartamento"));
+
+            if (sqlDataReader.HasRows)
+            {
+                while (sqlDataReader.Read())
+                {
+                    result.Rows.Add(sqlDataReader.GetValue(0), sqlDataReader.GetValue(1));
+                }
+            }
+
+            sqlDataReader.Close();
+
+            con.Close();
+
+            return result;
+
+        }
+
         public bool ExecuteQuery(string query)
         {
             try

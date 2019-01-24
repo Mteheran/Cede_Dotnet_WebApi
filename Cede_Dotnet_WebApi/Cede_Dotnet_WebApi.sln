@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cede_Dotnet_WebApi.ADOSampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cede_Dotnet_WebApi.ADOSample.App", "Cede_Dotnet_WebApi.ADOSample.App\Cede_Dotnet_WebApi.ADOSample.App.csproj", "{C0B6DC20-258C-4244-849A-2E157428B006}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cede_Dotnet_WebApi.EF", "Cede_Dotnet_WebApi.EF\Cede_Dotnet_WebApi.EF.csproj", "{4209840B-843E-4B07-A2C2-E76C817A671B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{C0B6DC20-258C-4244-849A-2E157428B006}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0B6DC20-258C-4244-849A-2E157428B006}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0B6DC20-258C-4244-849A-2E157428B006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4209840B-843E-4B07-A2C2-E76C817A671B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4209840B-843E-4B07-A2C2-E76C817A671B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4209840B-843E-4B07-A2C2-E76C817A671B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4209840B-843E-4B07-A2C2-E76C817A671B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +43,7 @@ Global
 		{A34318EC-3ED2-4801-A879-F8818AEB8111} = {AA66FE5B-ADF5-4027-8B07-F840E80A7B31}
 		{F37EAC0D-F7BC-4E63-A8B4-402B00397805} = {AA66FE5B-ADF5-4027-8B07-F840E80A7B31}
 		{C0B6DC20-258C-4244-849A-2E157428B006} = {AA66FE5B-ADF5-4027-8B07-F840E80A7B31}
+		{4209840B-843E-4B07-A2C2-E76C817A671B} = {AA66FE5B-ADF5-4027-8B07-F840E80A7B31}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6FEA72D9-7CB6-45A4-9BA3-C25C539C8697}

@@ -13,7 +13,7 @@ namespace Cede_Dotnet_WebApi.ADOSample
         {
             IConnection connection = ConnectionContex.GetContext(AppDBTypes.Main);
 
-            var data = connection.GetInfo("SELECT Id,NombreDepartamento FROM Departamento");
+            var data = connection.GetInfoConected("SELECT Id,NombreDepartamento FROM Departamento");
 
             List<Departamento> departamentos = new List<Departamento>();
 

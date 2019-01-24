@@ -42,9 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDBTypes.cs" />
     <Compile Include="Connection.cs" />
+    <Compile Include="ConnectionContex.cs" />
     <Compile Include="ConnectionOleDB.cs" />
+    <Compile Include="ConnectionType.cs" />
     <Compile Include="DepartamentoData.cs" />
+    <Compile Include="FactoryConnection.cs" />
     <Compile Include="IConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

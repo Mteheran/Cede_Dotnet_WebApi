@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cede_Dotnet_WebApi.EF;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,11 @@ namespace Cede_Dotnet_WebApi.ADOSample.App
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = DepartamentoData.GetDepartamentos();
+            // from ADO
+            //dataGridView1.DataSource = DepartamentoData.GetDepartamentos();
+
+            //from EF
+            dataGridView1.DataSource =  DepartamentoEF.GetDepartamentos();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
