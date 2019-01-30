@@ -4,12 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace Cede_Dotnet_MedicalAppointment_Empty.Controllers
 {
     public class DemoController : ApiController
     {
+        [HttpGet]
+        [NonAction]
+        public string Helloworld()
+        {
+            return $"HelloWorld ";
+        }
+
         [HttpGet]
         [ActionName("Demo")]
         public string Demo()
@@ -44,14 +52,30 @@ namespace Cede_Dotnet_MedicalAppointment_Empty.Controllers
         {
             return Getusers();
         }
-        
+
+        [HttpGet]
+        [Route("UsersMessage")]
+        public HttpResponseMessage UsersMessage()
+        {
+            List<User> users = Getusers();
+
+            HttpResponseMessage responseMessage = Request.CreateResponse(HttpStatusCode.OK, "users", new MediaTypeHeaderValue("text/html"));
+            responseMessage.Content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(users));
+            responseMessage.Headers.CacheControl = new CacheControlHeaderValue()
+            {
+                NoCache = false
+            };
+
+            return responseMessage;
+        }
+
         [Route("api/User")]
         [AcceptVerbs("POST","PATCH")]
-        public User SaveUser([FromBody] User user)
+        public IHttpActionResult SaveUser([FromBody] User user)
         {
             user.UserId = Guid.NewGuid().ToString();
 
-            return user;
+            return Ok(user);
         }
 
         private List<User> Getusers()
