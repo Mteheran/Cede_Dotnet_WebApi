@@ -13,10 +13,6 @@ namespace Cede_Dotnet_MedicalAppointment_EF.Context
     {
         protected override void Seed(MedicalAppointmentContext context)
         {
-            context.Users.Add(new User() { UserId = Guid.NewGuid(), Name = "William", LastName = "Ramirez", Nit = "0001", Genre = Genre.Male });
-            context.Users.Add(new User() { UserId = Guid.NewGuid(), Name = "Sofia", LastName = "Cano", Nit = "0002", Genre = Genre.Female });
-
-            base.Seed(context);
         }
     }
 }

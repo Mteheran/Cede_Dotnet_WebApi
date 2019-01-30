@@ -24,6 +24,12 @@ namespace Cede_Dotnet_MedicalAppointment_EF.Context
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
+            modelBuilder.Entity<Disponibility>().HasIndex(d => d.Hour);
+
+            modelBuilder.Entity<Specialist>().HasMany<Disponibility>(s => s.Disponibilities);
+
+            modelBuilder.Entity<Disponibility>().HasRequired(s => s.Specialist);
+
             base.OnModelCreating(modelBuilder);
         }
 

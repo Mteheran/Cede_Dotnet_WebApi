@@ -13,7 +13,7 @@ namespace Cede_Dotnet_MedicalAppointment_EF.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Guid UserId { get; set; }
+        public Guid UserId { get; set; } = Guid.NewGuid();
 
         [Required]
         [MaxLength(100)]
@@ -39,6 +39,9 @@ namespace Cede_Dotnet_MedicalAppointment_EF.Entities
         public UserStatus UserStatus { get; set; }
 
         public Genre Genre { get; set; }
+
+        [MaxLength(100)]
+        public string Email { get; set; }
 
         public virtual ICollection<Appointment> Appointments { get; set; }
     }

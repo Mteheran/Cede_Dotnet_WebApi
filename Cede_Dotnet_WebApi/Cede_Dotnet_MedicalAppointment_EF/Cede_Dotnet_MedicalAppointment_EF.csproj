@@ -77,6 +77,22 @@
     <Compile Include="Migrations\201901250000373_tablesnames.Designer.cs">
       <DependentUpon>201901250000373_tablesnames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901282131069_test.cs" />
+    <Compile Include="Migrations\201901282131069_test.Designer.cs">
+      <DependentUpon>201901282131069_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901282307339_IndexHourInDisponibility.cs" />
+    <Compile Include="Migrations\201901282307339_IndexHourInDisponibility.Designer.cs">
+      <DependentUpon>201901282307339_IndexHourInDisponibility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901282310563_SpecialistDisponibility.cs" />
+    <Compile Include="Migrations\201901282310563_SpecialistDisponibility.Designer.cs">
+      <DependentUpon>201901282310563_SpecialistDisponibility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901282317485_DisponibilityRequiredSpecialist.cs" />
+    <Compile Include="Migrations\201901282317485_DisponibilityRequiredSpecialist.Designer.cs">
+      <DependentUpon>201901282317485_DisponibilityRequiredSpecialist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -96,6 +112,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901250000373_tablesnames.resx">
       <DependentUpon>201901250000373_tablesnames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901282131069_test.resx">
+      <DependentUpon>201901282131069_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901282307339_IndexHourInDisponibility.resx">
+      <DependentUpon>201901282307339_IndexHourInDisponibility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901282310563_SpecialistDisponibility.resx">
+      <DependentUpon>201901282310563_SpecialistDisponibility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901282317485_DisponibilityRequiredSpecialist.resx">
+      <DependentUpon>201901282317485_DisponibilityRequiredSpecialist.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
