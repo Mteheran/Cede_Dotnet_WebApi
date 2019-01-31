@@ -25,6 +25,9 @@ namespace Cede_Dotnet_MedicalAppointment_Odata.Controllers
             lst.Add(new Models.User() { Name = "Juan Diego", Lastname = "Valencia", UserId = Guid.NewGuid().ToString(), Phone = "45454646" });
             lst.Add(new Models.User() { Name = "Hernan", Lastname = "Arguelles", UserId = Guid.NewGuid().ToString(), Phone = "4545446467" });
             lst.Add(new Models.User() { Name = "Raul", Lastname = "Romero", UserId = Guid.NewGuid().ToString(), Phone = "8585889689" });
+            lst.Add(new Models.User() { Name = "Denys", Lastname = "Cuervo", UserId = Guid.NewGuid().ToString(), Phone = "55789664" });
+            lst.Add(new Models.User() { Name = "Lorena", Lastname = "Arias", UserId = Guid.NewGuid().ToString(), Phone = "688986666" });
+            lst.Add(new Models.User() { Name = "Andres", Lastname = "Mora", UserId = Guid.NewGuid().ToString(), Phone = "99887889" });
 
             return lst;
         }
