@@ -12,14 +12,13 @@ namespace Cede_Dotnet_MedicalAppointment_Empty.Controllers
     public class DemoController : ApiController
     {
         [HttpGet]
-        [NonAction]
         public string Helloworld()
         {
             return $"HelloWorld ";
         }
 
         [HttpGet]
-        [ActionName("Demo")]
+        [ActionName("Demo1")]
         public string Demo()
         {
             return $"HelloWorld ";
@@ -51,6 +50,20 @@ namespace Cede_Dotnet_MedicalAppointment_Empty.Controllers
         public List<User> Users()
         {
             return Getusers();
+        }
+
+        [HttpGet]
+        [Route("Users/{id}")]
+        public List<User> Users(string id)
+        {
+            return Getusers().Where(p=> p.Name == id).ToList();
+        }
+        
+        [HttpGet]
+        [Route("UserMiguel")]
+        public List<User> UserMiguel()
+        {
+            return Getusers().Where(p => p.Name == "Miguel").ToList();
         }
 
         [HttpGet]
