@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cede_Dotnet_MedicalAppointm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cede_Dotnet_MedicalAppointment_Odata", "Cede_Dotnet_MedicalAppointment_Odata\Cede_Dotnet_MedicalAppointment_Odata.csproj", "{F46A364A-AC78-4293-A32C-195F0584156B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cede_Dotnet_MedicalAppointment_Api", "Cede_Dotnet_MedicalAppointment_Api\Cede_Dotnet_MedicalAppointment_Api.csproj", "{0BBD0CDD-9CA4-4708-9EEF-3D8DD8673C62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{F46A364A-AC78-4293-A32C-195F0584156B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F46A364A-AC78-4293-A32C-195F0584156B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F46A364A-AC78-4293-A32C-195F0584156B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BBD0CDD-9CA4-4708-9EEF-3D8DD8673C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BBD0CDD-9CA4-4708-9EEF-3D8DD8673C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BBD0CDD-9CA4-4708-9EEF-3D8DD8673C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BBD0CDD-9CA4-4708-9EEF-3D8DD8673C62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{84841EBE-0436-43A7-98F2-F158AF3B21AA} = {5BEB5B58-1F30-4590-9841-0AA58A68EB18}
 		{19A60171-357A-45FF-9FC0-E93048C4199B} = {F7A8BA7B-D3BB-4E01-826A-E5E8A3D7175E}
 		{F46A364A-AC78-4293-A32C-195F0584156B} = {F7A8BA7B-D3BB-4E01-826A-E5E8A3D7175E}
+		{0BBD0CDD-9CA4-4708-9EEF-3D8DD8673C62} = {F7A8BA7B-D3BB-4E01-826A-E5E8A3D7175E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6FEA72D9-7CB6-45A4-9BA3-C25C539C8697}
