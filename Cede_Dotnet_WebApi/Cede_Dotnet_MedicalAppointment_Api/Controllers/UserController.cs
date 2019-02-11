@@ -7,9 +7,10 @@ using System.Linq;
 using System.Web.Http;
 
 namespace Cede_Dotnet_MedicalAppointment_Api.Controllers
-{
-    public class UserController : ApiController
-    {        
+{    
+    public class UserController : ODataController
+    {
+        [EnableQuery]
         public IEnumerable<User> Get()
         {
             MedicalAppointmentContext medicalAppointment = new MedicalAppointmentContext();
