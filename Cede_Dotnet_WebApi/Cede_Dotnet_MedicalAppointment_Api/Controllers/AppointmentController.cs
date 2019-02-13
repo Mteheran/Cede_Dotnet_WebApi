@@ -20,6 +20,7 @@ namespace Cede_Dotnet_MedicalAppointment_Api.Controllers
             return medicalAppointment.Appointments.Where(p=> p.UserId == userId).ToList();
         }
 
+        [EnableQuery]
         public Appointment Get(string Id)
         {
             MedicalAppointmentContext medicalAppointment = new MedicalAppointmentContext();
@@ -27,6 +28,14 @@ namespace Cede_Dotnet_MedicalAppointment_Api.Controllers
             var Appointmentid = Guid.Parse(Id);
 
             return medicalAppointment.Appointments.FirstOrDefault(u => u.AppointmentId == Appointmentid);
+        }
+
+        [EnableQuery]
+        public List<Appointment> Get()
+        {
+            MedicalAppointmentContext medicalAppointment = new MedicalAppointmentContext();
+
+            return medicalAppointment.Appointments.ToList();
         }
 
         [HttpPost]

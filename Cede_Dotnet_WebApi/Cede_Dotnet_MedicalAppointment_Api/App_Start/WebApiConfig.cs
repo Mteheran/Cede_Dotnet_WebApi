@@ -34,13 +34,10 @@ namespace Cede_Dotnet_MedicalAppointment_Api
             GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
 
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-            //var model = builder.GetEdmModel();
-
+            
             builder.EntitySet<User>("User");
-            config.MapODataServiceRoute("User", "api", builder.GetEdmModel());
-
-            //builder.EntitySet<Appointment>("Appointment");
-            //config.MapODataServiceRoute("Appointment", "api", model);
+            builder.EntitySet<Appointment>("Appointment");
+            config.MapODataServiceRoute("app", "api", builder.GetEdmModel());
             config.Filter().Count().OrderBy().Select().Expand().MaxTop(10000);
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
