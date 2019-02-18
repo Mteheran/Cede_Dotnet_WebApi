@@ -4,6 +4,7 @@ using Microsoft.AspNet.OData.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -37,10 +38,16 @@ namespace Cede_Dotnet_MedicalAppointment_Api
             
             builder.EntitySet<User>("User");
             builder.EntitySet<Appointment>("Appointment");
+            builder.EntitySet<Specialist>("Specialist");
+            builder.EntitySet<Disponibility>("Disponibility");
             config.MapODataServiceRoute("app", "api", builder.GetEdmModel());
             config.Filter().Count().OrderBy().Select().Expand().MaxTop(10000);
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
+
+            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            jsonFormatter.UseDataContractJsonSerializer = true;
         }
     }
 }

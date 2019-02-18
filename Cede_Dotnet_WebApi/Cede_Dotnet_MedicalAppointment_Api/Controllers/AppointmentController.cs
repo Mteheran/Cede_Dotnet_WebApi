@@ -1,14 +1,19 @@
 ﻿using Cede_Dotnet_MedicalAppointment_EF.Context;
 using Cede_Dotnet_MedicalAppointment_EF.Entities;
 using Microsoft.AspNet.OData;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Cede_Dotnet_MedicalAppointment_Api.Controllers
 {
-    public class AppointmentController : ODataController
+    [Route("api/Appointment")]
+    public class AppointmentController : ApiController
     {
         [EnableQuery]
         public IEnumerable<Appointment> GetByUser(string Id)
@@ -38,21 +43,40 @@ namespace Cede_Dotnet_MedicalAppointment_Api.Controllers
             return medicalAppointment.Appointments.ToList();
         }
 
+        [Route("")]
         [HttpPost]
-        public IHttpActionResult Post([FromBody] Appointment Appointment)
+        public async Task<IHttpActionResult> Post(HttpRequestMessage request)
         {
-            using (var medicalAppointment = new MedicalAppointmentContext())
+            string body = await request.Content.ReadAsStringAsync();
+
+            if (!String.IsNullOrEmpty(body))
             {
-                var newAppointment = medicalAppointment.Appointments.Add(Appointment);
+                JObject json = JObject.Parse(body);
 
-                medicalAppointment.SaveChanges();
+                using (var medicalAppointment = new MedicalAppointmentContext())
+                {
+                    var appointmentobject = JsonConvert.DeserializeObject<Appointment>(json.ToString());                  
+                    Appointment appointment = new Appointment();
+                    appointment.AppointmentId = Guid.NewGuid();
+                    appointment.AppointmentDate = appointmentobject.AppointmentDate;
+                    appointment.SpecialistId = appointmentobject.SpecialistId;
+                    appointment.AppointmentStatus = appointmentobject.AppointmentStatus;
+                    appointment.UserId = appointmentobject.UserId;
+                    var newAppointment = medicalAppointment.Appointments.Add(appointment);
 
-                return Ok(newAppointment);
+                    medicalAppointment.SaveChanges();
+
+                    return Ok(newAppointment);
+                }
             }
+
+            return BadRequest();
+           
         }
 
+        [Route("")]
         [HttpPatch]
-        public IHttpActionResult UpdateStatus([FromBody] Appointment Appointment, string Id)
+        public IHttpActionResult UpdateStatus(Appointment Appointment, string Id)
         {
             using (var medicalAppointment = new MedicalAppointmentContext())
             {

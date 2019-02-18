@@ -25,7 +25,7 @@ namespace Cede_Dotnet_MedicalAppointment_EF.Entities
 
         [MaxLength(50)]
         [Required]
-        public string Code { get; set; }
+        public string Code { get; set; } = "AP" + DateTime.Now.Date.Day + DateTime.Now.Date.Hour + new Random().Next();
 
         public AppointmentStatus AppointmentStatus { get; set; }
     }
